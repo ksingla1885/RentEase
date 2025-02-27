@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rental Website</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">All Listings</a></li>
+      <li><a href="#">Add New Listings</a></li>
+      <li><a href="#">Property Type</a></li>
+      <li>
+        <select id="cityDropdown">
+          <option value="">Select a City</option>
+          <option value="Rajpura">Rajpura</option>
+          <option value="Banur">Banur</option>
+          <option value="Jhansla">Jhansla</option>
+        </select>
+        <button id="searchButton">Search</button>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Available Listings</h1>
+    <div id="listings"></div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

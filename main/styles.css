@@ -1,0 +1,334 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul li {
+  margin-right: 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar ul li a:hover {
+  text-decoration: underline;
+}
+
+#cityDropdown {
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+}
+
+#searchButton {
+  padding: 5px 10px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#searchButton:hover {
+  background-color: #777;
+}
+
+.container {
+  padding: 20px;
+}
+
+#listings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.listing {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  gap: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.listing-images {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  max-width: 300px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.listing-images img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.listing-images img:hover {
+  transform: scale(1.1);
+}
+
+.listing-details {
+  flex: 1;
+}
+
+.listing-details h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.listing-details p {
+  margin: 5px 0;
+}
+
+.listing-details .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #28a745;
+  margin: 10px 0;
+}
+
+.listing-details .amenities {
+  font-size: 14px;
+  color: #555;
+  margin: 10px 0;
+}
+
+.listing-details .location-highlights li {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.listing-details .location-highlights li {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.contact-owner,
+.view-on-map,
+.view-listing-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+
+.contact-owner {
+  background-color: #007bff;
+  color: white;
+}
+
+.contact-owner:hover {
+  background-color: #0056b3;
+}
+
+.view-on-map {
+  background-color: #6c757d;
+  color: white;
+}
+
+.view-on-map:hover {
+  background-color: #5a6268;
+}
+
+.view-listing-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.view-listing-button:hover {
+  background-color: #0056b3;
+}
+
+
+.badges {
+  margin-bottom: 10px;
+}
+
+.partner-verified,
+.brand-new {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.partner-verified {
+  background-color: #28a745;
+  color: white;
+}
+
+.brand-new {
+  background-color: #ffc107;
+  color: black;
+}
+
+.photo-count {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+.listing-details .details-section p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.listing-details .details-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listing-details .details-section ul li {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+/* Modal */
+.listing-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  color: #333;
+}
+
+.modal-content .price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #28a745;
+  margin: 10px 0;
+}
+
+.modal-content .location {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.modal-content .details-section,
+.modal-content .amenities-section,
+.modal-content .food-section,
+.modal-content .other-charges,
+.modal-content .photos-section {
+  margin-bottom: 20px;
+}
+
+.modal-content h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-content ul li {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.modal-content .photos {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.modal-content .photos img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.modal-content .contact-owner {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.modal-content .contact-owner:hover {
+  background-color: #0056b3;
+}
