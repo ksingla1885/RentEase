@@ -1,0 +1,87 @@
+body {
+  background-image: url(https://img.freepik.com/free-photo/city-lights-urban-scenic-view-buildings-concept_53876-16312.jpg?t=st=1740640450~exp=1740644050~hmac=710fec47bde2fd2016fd66ff322f987e1a80b573dab4c7835c8dfccc536dd331&w=1680);
+  background-repeat: no-repeat;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  /* background: linear-gradient(to bottom, #1f3c6a,  #090a0f); */
+  overflow: auto;
+}
+
+.container {
+  opacity: 1;
+  max-width: 600px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header img {
+  max-width: 100px;
+  margin-bottom: 10px;
+}
+
+.header h2 {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  color: #2c3e50;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555;
+}
+
+input, select, textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 14px;
+  background: #f9f9f9;
+}
+
+input:focus, textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #1f3c6a;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color:  #090a0f;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+}
