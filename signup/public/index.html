@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -49,7 +49,7 @@
                 <label><input type="checkbox" name="parentGuidelines" value=" I agree to the RentEase policies and guidelines." > I agree to the RentEase policies and guidelines.</label>
             </div>
             <span id="parentGuidelinesError" class="error"></span>
-            <!-- <button type="submit">Register</button> -->
+           
             <div class="btn">
                 <button type="submit">Register</button>
                 <button type="button" id="signinBtn">Sign In</button>
@@ -110,4 +110,228 @@
         }
     </script>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentEase - Sign Up & Sign In</title>
+    <style>
+        body {
+            background-image: url(https://img.freepik.com/free-photo/city-lights-urban-scenic-view-buildings-concept_53876-16312.jpg?t=st=1740640450~exp=1740644050~hmac=710fec47bde2fd2016fd66ff322f987e1a80b573dab4c7835c8dfccc536dd331&w=1680);
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* background: linear-gradient(to bottom, #1f3c6a,  #090a0f); */
+            overflow: auto;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input,
+        select {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            font-size: 14px;
+            background: #f9f9f9;
+        }
+
+        input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
+        .btn {
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #1f3c6a;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #090a0f;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button[type="button"] {
+            background-color: #008CBA;
+            color: white;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Hide forms using a class */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h2>Welcome to RentEase</h2>
+            <h3 id="formTitle">Register</h3>
+        </div>
+
+        <!-- Registration Form -->
+        <form id="campForm" action="/post" method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="pass">Password: </label>
+            <input type="password" id="pass" name="pass" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label>(Mandatory):</label>
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="policyCheckbox" required>
+                    I agree to the RentEase policies and guidelines.
+                </label>
+            </div>
+
+            <div class="btn">
+                <button type="submit">Register</button>
+                <button type="button" id="showLoginForm">Sign In</button>
+            </div>
+        </form>
+
+        <!-- Login Form -->
+        <form id="loginForm" action="/login" method="POST" class="hidden">
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+
+            <label for="loginPass">Password: </label>
+            <input type="password" id="loginPass" name="pass" required>
+
+            <div class="btn">
+                <button type="submit">Sign In</button>
+                <button type="button" id="showSignupForm">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const signupForm = document.getElementById("campForm");
+            const loginForm = document.getElementById("loginForm");
+            const formTitle = document.getElementById("formTitle");
+
+            // Show login form when clicking "Sign In"
+            document.getElementById("showLoginForm").addEventListener("click", function () {
+                signupForm.classList.add("hidden");
+                loginForm.classList.remove("hidden");
+                formTitle.textContent = "Sign In";
+            });
+
+            // Show register form when clicking "Register"
+            document.getElementById("showSignupForm").addEventListener("click", function () {
+                loginForm.classList.add("hidden");
+                signupForm.classList.remove("hidden");
+                formTitle.textContent = "Register";
+            });
+
+            // Handle registration form submission
+            signupForm.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent actual submission
+
+                // Simulate form submission (send data to server)
+                setTimeout(() => {
+                    alert("Registration successful! You can now sign in.");
+                    signupForm.classList.add("hidden");
+                    loginForm.classList.remove("hidden");
+                    formTitle.textContent = "Sign In";
+                }, 500); // Small delay to simulate response
+            });
+
+            // Handle login form submission
+            loginForm.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent actual form submission
+
+                const email = document.getElementById("loginEmail").value;
+                const password = document.getElementById("loginPass").value;
+
+                if (email && password) {
+                    // Simulate authentication
+                    setTimeout(() => {
+                        alert("Login successful! Redirecting...");
+                        window.location.href = "landing/index.html"; // Redirect to landing page
+                    }, 500);
+                }
+            });
+        });
+    </script>
+
+</body>
+
 </html>
