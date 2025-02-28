@@ -272,3 +272,54 @@ document.getElementById('searchButton').addEventListener('click', handleSearch);
 
 // Initial display of all listings
 displayListings(listingsData);
+
+// Function to show the add listing form
+document.getElementById('addListingButton').addEventListener('click', () => {
+  document.getElementById('addListingForm').style.display = 'block';
+});
+
+// Function to close the add listing form
+document.getElementById('closeFormButton').addEventListener('click', () => {
+  document.getElementById('addListingForm').style.display = 'none';
+});
+
+// Function to handle form submission
+document.getElementById('listingForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // Get form data
+  const formData = new FormData(e.target);
+  const newListing = {
+    title: formData.get('title'),
+    city: formData.get('city'),
+    price: formData.get('price'),
+    type: formData.get('type'),
+    occupancyType: formData.get('occupancyType'),
+    foodIncluded: formData.get('foodIncluded') === 'true',
+    propertyDetails: formData.get('propertyDetails'),
+    amenities: formData.get('amenities').split(',').map(item => item.trim()),
+    mealsProvided: formData.get('mealsProvided').split(',').map(item => item.trim()),
+    foodCharges: formData.get('foodCharges'),
+    depositAmount: formData.get('depositAmount'),
+    maintenance: formData.get('maintenance'),
+    electricityCharges: formData.get('electricityCharges'),
+    images: formData.get('images').split(',').map(item => item.trim()),
+    partnerVerified: false,
+    brandNew: true
+  };
+
+  // Add new listing to the data
+  listingsData.push(newListing);
+
+  // Refresh the listings display
+  displayListings(listingsData);
+
+  // Close the form
+  document.getElementById('addListingForm').style.display = 'none';
+
+  // Reset the form
+  e.target.reset();
+});
+
+// Rest of the JavaScript code remains the same
+
