@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Owner</title>
+    <link rel="stylesheet" href="/owner/contact.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Contact Owner</h2>
+        <div class="owner-info">
+            <img src="owner.jpg" alt="Owner Photo" class="owner-photo">
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Phone:</strong> +1 234 567 890</p>
+        </div>
+        
+        <h3>Send a Message</h3>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        
+        <p id="response-message"></p>
+    </div>
+
+    <script src="/owner/contact.js"></script>
+</body>
+</html>

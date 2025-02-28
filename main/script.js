@@ -161,7 +161,9 @@ function showListingDetails(listing) {
         </div>
       </div>
 
-      <button class="contact-owner">Contact Owner</button>
+      <a href="../owner/contact.html">
+  <button class="contact-owner">Contact Owner</button>
+</a>
     </div>
   `;
 
